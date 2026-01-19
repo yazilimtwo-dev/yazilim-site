@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yazilim.com</title>
+  <meta name="description" content="yazilim.com — Advanced PC Tweaker links." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="fx" aria-hidden="true">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <main class="stage">
+    <section class="glass" id="glass">
+      <header class="top">
+        <div class="badge">
+          <span class="dot"></span>
+          online • yazilim.com
+        </div>
+
+        <div class="brand">
+          <div class="mark">Y</div>
+          <div class="txt">
+            <h1>yazilim.com</h1>
+            <p>Advanced PC Tweaker • Tools • Performance</p>
+          </div>
+        </div>
+
+        <p class="desc">
+          Advanced PC Tweaker tools. Low-latency systems, clean UI, one-click workflows.
+        </p>
+      </header>
+
+      <section class="cards" aria-label="Links">
+        <a class="card" href="https://discord.gg/uJU7UgtJz4" target="_blank" rel="noreferrer">
+          <div class="ico">#</div>
+          <div class="meta">
+            <div class="t">Discord</div>
+            <div class="d">Join the server</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="https://x.com/_yazilim" target="_blank" rel="noreferrer">
+          <div class="ico">𝕏</div>
+          <div class="meta">
+            <div class="t">Twitter (X)</div>
+            <div class="d">@_yazilim</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="mailto:yazilimtwo@gmail.com">
+          <div class="ico">@</div>
+          <div class="meta">
+            <div class="t">Email</div>
+            <div class="d">yazilimtwo@gmail.com</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+      </section>
+
+      <footer class="bottom">
+        <span>© <span id="year"></span> yazilim.com</span>
+        <span class="sep">•</span>
+        <span class="mini">Discord • X • Email</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const g = document.getElementById("glass");
+    window.addEventListener("mousemove", (e) => {
+      const r = g.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const dx = (e.clientX - cx) / r.width;
+      const dy = (e.clientY - cy) / r.height;
+      g.style.setProperty("--rx", (-dy * 6).toFixed(2) + "deg");
+      g.style.setProperty("--ry", (dx * 8).toFixed(2) + "deg");
+    }, { passive: true });
+
+    window.addEventListener("mouseleave", () => {
+      g.style.setProperty("--rx", "0deg");
+      g.style.setProperty("--ry", "0deg");
+    });
+  </script>
+</body>
+</html>
